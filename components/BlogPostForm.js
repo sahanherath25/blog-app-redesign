@@ -50,7 +50,7 @@ const BlogPostForm = ({initialStateValues,onSubmit}) => {
 
             <View style={styles.textContainer}>
                 <Text  style={styles.text}>Blog Content</Text>
-                <TextInput style={styles.textInput} value={content} placeholder={"Enter Blog Content"} onChangeText={onChangeContent}/>
+                <TextInput  numberOfLines={4}  multiline={true} style={[styles.textInput,styles.textArea]} value={content} placeholder={"Enter Blog Content"} onChangeText={onChangeContent}/>
             </View>
 
             {/*<View style={styles.button}>*/}
@@ -83,6 +83,9 @@ const styles = StyleSheet.create(
         },
         button:{
             alignItems:"center",
+        },
+        textArea:{
+            textAlignVertical: 'top',
         }
     }
 )

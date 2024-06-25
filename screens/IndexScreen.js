@@ -1,12 +1,29 @@
-import React, {useContext} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {Text, View, StyleSheet, FlatList, Pressable, Alert, Button, TextInput} from "react-native";
 import {Context as BlogContext} from "../context/BlogContext";
 import {Feather} from '@expo/vector-icons';
+import axios from "axios";
 
 const IndexScreen = ({navigation}) => {
 
-    const {state, addBlogPost,removeBlogPost} = useContext(BlogContext);
+    const {state, addBlogPost,removeBlogPost,getBlogPosts} = useContext(BlogContext);
     // const {data2,name}=useContext(CommentContext);
+
+    useEffect( ()=>{
+        getBlogPosts()
+
+       const unsubscribe= navigation.addListener("focus",()=>{
+            getBlogPosts()
+        })
+
+        console.log({unsubscribe})
+
+        // TODO return function will be executed before this component is unmounted
+        return ()=>{
+            unsubscribe.remove();
+        }
+
+    },[])
 
 
     return (
