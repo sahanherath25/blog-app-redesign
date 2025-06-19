@@ -50,7 +50,7 @@ export default function App() {
                             headerRight:()=>{
                                 return(
                                     <TouchableOpacity  onPress={() => navigation.navigate('create')}>
-                                        <Feather name={"plus"} size={30}/>
+                                        <Feather name={"plus"} size={40}/>
                                     </TouchableOpacity>
                             )
 
